@@ -14,11 +14,6 @@ def main():
 
 
 @main.command()
-def create():
-    pass
-
-
-@main.command()
 @click.option("--access", required=True, help="Access value to restrict")
 @access_permission_options
 def restrict(access, **kwargs):

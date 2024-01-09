@@ -24,7 +24,7 @@ This project has been formatted using `black`. New code should also be
 formatted with `black`. `tox` will automatically run `black` on the code when
 executing tests.
 
-### Testing
+### Unit Testing
 
 This repo uses `tox` for test execution. To run tests, do the following:
 
