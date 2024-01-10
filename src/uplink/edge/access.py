@@ -28,21 +28,21 @@ class RegisterAccessOptions:
 
 class Config:
     __slots__ = [
-        "auth_service_address",
+        "auth_service_url",
         "certificate_pem",
     ]
 
     def __init__(
         self,
-        auth_service_address: str,
-        certificate_pem: Optional[bytes],
+        auth_service_url: str,
+        certificate_pem: Optional[bytes] = None,
     ):
-        self.auth_service_address = auth_service_address
+        self.auth_service_url = auth_service_url
         self.certificate_pem = certificate_pem
 
     def register_access(self, access: Access, options: Optional[RegisterAccessOptions]):
-        if self.auth_service_address == "":
-            raise ValueError("auth_service_address is missing")
+        if self.auth_service_url == "":
+            raise ValueError("auth_service_url is missing")
 
         if options is None:
             options = RegisterAccessOptions()
@@ -54,7 +54,7 @@ class Config:
             context = ssl.create_default_context(cadata=self.certificate_pem)
 
         req = urllib.request.Request(
-            f"{self.auth_service_address}/v1/access",
+            f"{self.auth_service_url}/v1/access",
             method="POST",
             data=json.dumps(
                 {

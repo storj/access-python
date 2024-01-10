@@ -1,9 +1,9 @@
 # Copyright (C) 2023 Storj Labs, Inc.
 # See LICENSE for copying information.
 
-from .common import grant
-from .common.storj import NodeURL
-from .common import rpc
+from uplink.common import grant
+from uplink.common.storj import NodeURL
+from uplink.common import rpc
 
 
 def parse_access(access_value):

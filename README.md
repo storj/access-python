@@ -54,6 +54,10 @@ To regenerate the proto files:
 
     (.venv) $ protoc -Isrc --python_out=src --mypy_out=src src/uplink/common/pb/*.proto src/uplink/common/macaroon/types.proto
 
+## Examples
+
+There are code examples [here](./tests/test_examples.py).
+
 ## CLI Tool
 
 This project includes a rudimentary CLI tool `access` for creating, restricting, and registering access.

@@ -56,6 +56,7 @@ def test_restrict():
     # Check that all actions are allowed and the encAccess has only the default key
     restricted.api_key.check(secret, action1)
     restricted.api_key.check(secret, action2)
+
     assert default_key == restricted.enc_access.store.default_key
 
     _, _, base = restricted.enc_access.store.lookup_encrypted(

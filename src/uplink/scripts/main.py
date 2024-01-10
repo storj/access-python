@@ -69,7 +69,7 @@ def _register_access(
     # We don't implement dRPC yet, so use the legacy http service only.
 
     config = edge.Config(
-        auth_service_address=auth_service,
+        auth_service_url=auth_service,
         certificate_pem=certificate_pem,
     )
 

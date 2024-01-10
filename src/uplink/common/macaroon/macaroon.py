@@ -7,7 +7,7 @@ import os
 from enum import IntEnum, unique
 from collections import namedtuple
 from collections.abc import Iterable
-from typing import Tuple, List
+from typing import Tuple, List, Optional
 from . import types_pb2 as types_pb2
 import struct
 
@@ -26,12 +26,17 @@ class FieldType(IntEnum):
 class Macaroon:
     VERSION = 2
 
+    __slots__ = ["head", "tail", "caveats"]
+
     def __init__(
-        self, head: bytes = bytes(), tail: bytes = bytes(), caveats: List[bytes] = []
+        self,
+        head: bytes = bytes(),
+        tail: bytes = bytes(),
+        caveats: Optional[List[bytes]] = None,
     ):
         self.head = head
         self.tail = tail
-        self.caveats = caveats
+        self.caveats = caveats or []
 
     @staticmethod
     def parse(data: bytes):

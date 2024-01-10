@@ -69,7 +69,7 @@ class AccessPermission:
 
     def __init__(
         self,
-        prefixes: List[SharePrefix] = [],
+        prefixes: Optional[List[SharePrefix]] = None,
         readonly: bool = False,
         writeonly: bool = False,
         disallow_deletes: bool = False,
@@ -80,7 +80,7 @@ class AccessPermission:
         not_after: Optional[datetime] = None,
         max_object_ttl: Optional[timedelta] = None,
     ):
-        self._prefixes = prefixes
+        self._prefixes = prefixes or []
         self._readonly = readonly
         self._writeonly = writeonly
         self._disallow_deletes = disallow_deletes
