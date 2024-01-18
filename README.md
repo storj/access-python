@@ -1,6 +1,12 @@
 # Uplink Access (Python)
 
-Uplink Access is python library for creating, restricting, and registering access.
+Uplink Access is python library for Storj access management.
+
+## Roadmap
+
+- [ ] Creating access
+- [X] Restricting access
+- [X] Registering access with edge services
 
 ## Local Development
 
@@ -60,4 +66,4 @@ There are code examples [here](./tests/test_examples.py).
 
 ## CLI Tool
 
-This project includes a rudimentary CLI tool `access` for creating, restricting, and registering access.
+This project includes a rudimentary CLI tool `access`.

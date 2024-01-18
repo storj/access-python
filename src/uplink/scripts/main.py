@@ -6,6 +6,34 @@ import uplink
 from uplink import edge
 from .access_permission import AccessPermission, access_permission_options
 
+_DEFAULT_AUTH_SERVICE = "https://auth.storjshare.io"
+
+_RESTRICT_EXAMPLE = """
+\b
+Example: restrict access to read-only on the "widgets" bucket
+\b
+    $ uplink restrict \\
+        --access $(cat access-key.txt) \\
+        --readonly=true \\
+        --prefix=widgets
+
+\b
+Example: restrict access to the "springs" prefix in the "widgets" bucket
+\b
+    $ uplink restrict \\
+        --access $(cat access-key.txt) \\
+        --prefix=widgets/springs
+
+"""
+
+_REGISTER_EXAMPLE = """
+\b
+Example: register access with default auth service
+\b
+    $ uplink register --access $(cat access-key.txt)
+
+"""
+
 
 @click.group()
 @click.version_option()
@@ -13,7 +41,9 @@ def main():
     pass
 
 
-@main.command()
+@main.command(
+    help="Restricts the provided access", no_args_is_help=True, epilog=_RESTRICT_EXAMPLE
+)
 @click.option("--access", required=True, help="Access value to restrict")
 @access_permission_options
 def restrict(access, **kwargs):
@@ -28,11 +58,13 @@ def restrict(access, **kwargs):
     click.echo(f"{serialized}")
 
 
-@main.command()
+@main.command(
+    help="Registers the provided access", no_args_is_help=True, epilog=_REGISTER_EXAMPLE
+)
 @click.option(
     "--auth-service",
-    default="https://auth.storjshare.io",
-    help="The address to the service you wish to register your access with",
+    default=_DEFAULT_AUTH_SERVICE,
+    help=f"The address to the service you wish to register your access with (defaults to {_DEFAULT_AUTH_SERVICE})",
 )
 @click.option(
     "--ca-cert",

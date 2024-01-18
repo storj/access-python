@@ -5,6 +5,9 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "access"
 dynamic = ["version"]
+description = "Storj access management library and script"
+readme = "README.md"
+license = { file = "LICENSE" }
 dependencies = [
     "Click",
     "base58",
@@ -12,6 +15,17 @@ dependencies = [
     "pycryptodome",
     "pynacl",
 ]
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+]
+keywords = ["storj", "access"]
+requires-python = ">=3.11"
+
+[project.urls]
+Homepage = "https://storj.io"
+GitHub = "https://github.com/storj/access-python"
 
 [project.scripts]
 access = 'uplink.scripts.main:main'
