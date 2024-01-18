@@ -14,15 +14,15 @@ Uplink Access is python library for Storj access management.
 
 1. Create a new virtual environment
 
-    $ python3 -m venv .venv
+       $ python3 -m venv .venv
 
 2. Activate the virtual environment
 
-    $ . ./venv/bin/activate
+       $ . ./venv/bin/activate
 
 3. Install the project into the virtual environment as an editable project
 
-    (.venv) $ python3 -m pip install -e ".[dev,tests]"
+       (.venv) $ python3 -m pip install -e ".[dev,tests]"
 
 ### Style
 
@@ -36,15 +36,15 @@ This repo uses `tox` for test execution. To run tests, do the following:
 
 1. Activate the virtual environment (if not already activated)
 
-    $ . ./venv/bin/activate
+       $ . ./venv/bin/activate
 
 2. Install `tox` into the virtual environment (if not already installed)
 
-    (.venv) $ python3 -m pip install tox
+       (.venv) $ python3 -m pip install tox
 
 3. Run tox to execute tests
 
-    (.venv) $ tox
+       (.venv) $ tox
 
 ### Protobuf (Re)generation
 
@@ -54,11 +54,11 @@ To regenerate the proto files:
 
 1. Activate the virtual environment (if not already activated)
 
-    $ . ./venv/bin/activate
+       $ . ./venv/bin/activate
 
 2. Run protoc (version >= v25) with protoc-gen-mypy (installed in virtualenv)
 
-    (.venv) $ protoc -Isrc --python_out=src --mypy_out=src src/uplink/common/pb/*.proto src/uplink/common/macaroon/types.proto
+       (.venv) $ protoc -Isrc --python_out=src --mypy_out=src src/uplink/common/pb/*.proto src/uplink/common/macaroon/types.proto
 
 ## Examples
 
